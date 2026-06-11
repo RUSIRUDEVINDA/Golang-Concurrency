@@ -26,10 +26,7 @@ func main(){
 		{TableNumber:5, PrepTime:2*time.Second},
 	}
 	for _,order:=range orders{
-		go processOrder(order) // Process each order concurrently, what happening there? In there is a loop that iterates over the orders and for each order, it starts a new goroutine to process the order concurrently. 
-		// This means that all orders will be processed at the same time, rather than waiting for one order to finish before starting the next one. 
-		// The main function will continue executing and will wait for user input (via fmt.Scanln()) to prevent the program from exiting immediately, allowing all goroutines to complete their tasks.
+		processOrder(order) 
 	}
-	// Wait for all orders to be processed
-	fmt.Scanln()
+	
 }
